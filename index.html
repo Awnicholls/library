@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <title>My Library</title>
+</head>
+
+<body>
+  <div class="header">
+    <h1>My Library</h1>
+  </div>
+  <div class="container">
+    <div class="wrapper">
+      <form action="">
+       
+        <div>
+          <label for="tile">Book Title: </label>
+          <input type="text" id="title" />
+        </div>
+        
+        <div>
+          <label for="author">Author: </label>
+          <input type="text" id="author" />
+        </div>
+       
+        <div>
+          <label for="status">Status: </label>
+          <select name="status" id="status">
+            <option value="read">Read</option>
+            <option value="not read">Not read</option>
+          </select>
+        </div>
+        
+        <div class="library-log-wrapper">
+          <h2>Library log: </h2>
+          <div class="total-books">
+            <h3>Total books count :</h3>
+           <h3> <span id="books-count"></span></h3>
+          </div>
+          <div class="total-read">
+            <h3>Read:</h3>
+            <h3> <span id="read-b-count"></span></h3>
+          </div>
+          <div class="not-read">
+            <h3>Not read:</h3>
+          <h3> <span id="not-read-b-count"></span> </h3> 
+          </div>
+        </div>
+
+        <input type="submit" value="Submit" class="button-primary" />
+      </form>
+    </div>
+
+
+    <div class="table-wrapper">
+      <div class="book-table"></div>
+      <table class="book-table">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        <tbody id="book-table-body"></tbody>
+      </table>
+    </div>
+
+    <script src="script-test.js"></script>
+</body>
+
+</html>
