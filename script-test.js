@@ -1,4 +1,4 @@
-let library;
+let library = [];
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const status = document.querySelector("#status");
@@ -13,6 +13,9 @@ const form = document.querySelector("form").addEventListener("submit", (e) => {
   clearForm();
   updateTotalBooks();
 });
+//document.querySelector("status-button").addEventListener('click', classToggle);
+
+
 
 const DEFAULT_DATA = [
   { title: "The Lord of the Rings", author: "Tolkien", status: "read" },
@@ -35,6 +38,8 @@ const $table = document
     render();
   });
 
+
+
 class Book {
   constructor(title, author, status) {
     this.title = title;
@@ -42,6 +47,9 @@ class Book {
     this.status = status;
   }
 }
+
+
+
 // capitalize first letter of any string
 
 String.prototype.capitalize = function () {
@@ -50,6 +58,8 @@ String.prototype.capitalize = function () {
     .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
     .join(" ");
 };
+
+
 
 function addBookToLibrary() {
   if (title.value.length === 0 || author.value.length === 0) {
@@ -61,7 +71,6 @@ function addBookToLibrary() {
     author.value.capitalize(),
     status.value
   );
-
   library.push(newBook);
   updateLocalStorage();
 }
@@ -108,6 +117,9 @@ function updateTotalBooks() {
   not_read_count.textContent = library.length - count;
 }
 
+
+
+
 function render() {
   checkLocalStorage();
   tableBody.innerHTML = "";
@@ -116,7 +128,7 @@ function render() {
       <tr>
         <td>${book.title}</td>
         <td>${book.author}</td>
-        <td><button class="status-button">${book.status.capitalize()}</button></td>
+        <td><button class="status-button ${book.status}">${book.status.capitalize()}</button></td>
         <td><button class="delete-button">Delete</button></td>
       </tr>
       `;
