@@ -13,8 +13,6 @@ const form = document.querySelector("form").addEventListener("submit", (e) => {
   clearForm();
   updateTotalBooks();
 });
-//document.querySelector("status-button").addEventListener('click', classToggle);
-
 
 
 const DEFAULT_DATA = [
@@ -74,14 +72,17 @@ function addBookToLibrary() {
   library.push(newBook);
   updateLocalStorage();
 }
+
 function changeStatus(book) {
   if (library[book].status === "read") {
     library[book].status = "not read";
   } else library[book].status = "read";
 }
+
 function deleteBook(currentBook) {
   library.splice(currentBook, 1);
 }
+
 function findBook(libraryArray, title) {
   if (libraryArray.length === 0 || libraryArray === null) {
     return;
@@ -91,13 +92,16 @@ function findBook(libraryArray, title) {
       return libraryArray.indexOf(book);
     }
 }
+
 function clearForm() {
   title.value = "";
   author.value = "";
 }
+
 function updateLocalStorage() {
   localStorage.setItem("library", JSON.stringify(library));
 }
+
 function checkLocalStorage() {
   if (localStorage.getItem("library")) {
     library = JSON.parse(localStorage.getItem("library"));
@@ -116,9 +120,6 @@ function updateTotalBooks() {
   read_count.textContent = count;
   not_read_count.textContent = library.length - count;
 }
-
-
-
 
 function render() {
   checkLocalStorage();

@@ -123,13 +123,13 @@ form p {
   background-color: lightgreen;
 }
 .read:hover{
-  background-color: green;
+  background-color: rgb(62, 247, 62);
 }
 .not{
   background-color: lightblue;
 }
 .not:hover{
-  background-color: rgb(36, 36, 248);
+  background-color: rgb(77, 77, 247);
 }
 
 .library-log-wrapper {
@@ -146,6 +146,7 @@ h2 {
 h3 {
   font-size: 16px;
 }
+
 
 th,
 td {
