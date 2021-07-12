@@ -14,12 +14,13 @@ const form = document.querySelector("form").addEventListener("submit", (e) => {
   updateTotalBooks();
 });
 
-
+//data to auto-populate the table if the visitor is new
 const DEFAULT_DATA = [
   { title: "The Lord of the Rings", author: "Tolkien", status: "read" },
   { title: "Alice in Wonderland", author: "Lewis Caroll", status: "not read" },
 ];
 
+//selects the table, adds event listners to the delete and read/not read button
 const $table = document
   .querySelector("table")
   .addEventListener("click", (e) => {
@@ -49,7 +50,6 @@ class Book {
 
 
 // capitalize first letter of any string
-
 String.prototype.capitalize = function () {
   return this.toLowerCase()
     .split(" ")
@@ -58,7 +58,7 @@ String.prototype.capitalize = function () {
 };
 
 
-
+// checks that the fields aren't empty, and then adds the book to localstorage and the table
 function addBookToLibrary() {
   if (title.value.length === 0 || author.value.length === 0) {
     alert("Please fill all the fields");
@@ -121,6 +121,7 @@ function updateTotalBooks() {
   not_read_count.textContent = library.length - count;
 }
 
+//checks if the user is new or not, populates table based on this with either DEFAULT-DATA or local storage
 function render() {
   checkLocalStorage();
   tableBody.innerHTML = "";
